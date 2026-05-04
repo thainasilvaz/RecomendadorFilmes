@@ -1,0 +1,22 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card-filme {
+  text-align: left;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card-filme:hover{
+  transform:scale(1.05);
+}
+
+.card-filme img{
+  width: 100%;
+  border-radius: 8px;
+}
+

@@ -1,0 +1,19 @@
+<div class="grid">
+
+  @for (item of resultados; track item.id) {
+    <p-card class="card-filme">
+
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + item.poster_path"
+        alt="poster"
+      >
+
+      <h3>{{ item.title }}</h3>
+
+      <p>⭐ {{ item.vote_average }}</p>
+
+    </p-card>
+  }
+
+</div>
+

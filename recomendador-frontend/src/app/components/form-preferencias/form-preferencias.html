@@ -1,0 +1,49 @@
+<p-card header="Buscar Filmes">
+
+  <div class="campo">
+    <p-select
+      [options]="generos"
+      [(ngModel)]="genero"
+      optionLabel="label"
+      optionValue="value"
+      placeholder="Selecione um gênero">
+    </p-select>
+  </div>
+
+  <div class="campo">
+    <input pInputText [(ngModel)]="notaMinima" type="number" placeholder="Nota mínima" min="0" max="10">
+  </div>
+
+  <p-button
+    type="button"
+    label="Buscar"
+    icon="pi pi-search"
+    iconPos="right"
+    (onClick)="enviar()">
+  </p-button>
+
+</p-card>
+
+@if (loading) {
+  <div class="loading">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+}
+
+@if (erro){
+  <p>{{ erro }}</p>
+}
+
+@if (!loading && resultado.length > 0){ <!--resultado só aparece quando NÃO está carregando-->
+  <app-resultado [resultados]="resultado"></app-resultado> <!--"Passe a variável resultado para o componente filho" obs: isso é property binding-->
+}
+
+@if (buscou && !loading && resultado.length === 0){
+  <div class="empty">
+    <i class="pi pi-search"></i>
+    <p>Nenhum resultado encontrado</p>
+  </div>
+}
+
+
+
